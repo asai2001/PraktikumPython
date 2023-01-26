@@ -20,8 +20,10 @@ class Consumer(threading.Thread):
             condition.notify()
 
     def run(self):
-        for i in range(20):
-            time.sleep(2)
+        global item
+        time.sleep(2)
+        item = random.randint(0, 20)
+        for item in range(20):
             self.consume()
 
 class Producer(threading.Thread):
@@ -36,8 +38,10 @@ class Producer(threading.Thread):
             logging.info('total items {}'.format(len(items)))
             condition.notify()
     def run(self):
-        for i in range(20):
-            time.sleep(0.5)
+        global item
+        time.sleep(0.5)
+        item = random.randint(0, 20)
+        for item in range(20):
             self.produce()
 def main():
     producer = Producer(name='Producer')

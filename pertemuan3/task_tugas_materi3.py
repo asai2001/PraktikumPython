@@ -12,7 +12,7 @@ semaphore = threading.Semaphore(0)
 def consumer():
     # for item in range(11):
     lst=list(range(100))
-    lst.sort(reverse=True)
+    # lst.sort(reverse=True)
     for i in range(10):
         logging.info('Consumer is waiting')
         semaphore.acquire()
@@ -21,7 +21,7 @@ def consumer():
 
 def producer():
     lst=list(range(100))
-    lst.sort(reverse=True)
+    # lst.sort(reverse=True)
     for i in range(10):
         # item = [5, 7, 4, 6, 9, 8]
         # item.sort
